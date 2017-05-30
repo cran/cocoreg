@@ -49,7 +49,7 @@ dl_remove_NA <- function(df_lst){
 #' 
 #' @description  
 #' Assumes equal variables for all datasets!
-#' Ouput has columns: <variables>, "dataset"
+#' Output has columns: <variables>, "dataset"
 #' Preserves list element names in column "dataset".
 #' For a more generic approach see dflst2dfmelt (uses reshape::melt(df_lst))
 #'
@@ -188,7 +188,7 @@ data_collections2ggdf <- function(..., id.vars=NULL){
 #' @param lst nested list, A nested list structure to process
 #' @param fun function object, The function to apply at the bottom level
 #' @param exclude_names string array, Names of list elements to skip at any level
-#' @param ... Furhter parameters passed on to fun
+#' @param ... Further parameters passed on to fun
 #'     
 #' @return A list outputs generated when applying fun to the bottom level of input lst.
 #' Bottom level is considered reached when something other than class == 'list' is 
@@ -307,7 +307,7 @@ df_scale_ols <- function(dfx, dfy){
 #' 
 #' @param x [1,m] double, A vector of data
 #' 
-#' @return [1,1] double, Euclidiean norm of x
+#' @return [1,1] double, Euclidean norm of x
 #' 
 #' @export
 vecnorm <- function(x){
@@ -617,11 +617,11 @@ repmat = function(X, m, n){
 ## Wrappers
 ## -----------------------------------------------------------------------------
 
-#' Run BGFA by Klami et al using data format conventions of this repo
+#' Run BGFA by Klami et. al. using data format conventions of this repo
 #'
 #' @param df_list [1,m] list of data.frames, Input data to GFA in COCOREG format
 #' @param K [1,1] int, The (maximum) number of components; should be high enough to capture all of the components. This can be recognized by at least a few of the components being shut down
-#' @param Nrep [1,1] int, Number of random initializatin used for learning the model
+#' @param Nrep [1,1] int, Number of random initialization used for learning the model
 #' 
 #' @return A list, The output of CCAGFA::GFA()
 #'
@@ -670,7 +670,7 @@ BGFA_joint_info <- function(model, threshold=0.001){
 #' 
 #' @param df_list [1,m] list of data.frames, Input data to GFA in COCOREG format
 #' @param K [1,1] int, (Maximum) number of GFA components 
-#' @param Nrep [1,1] int, Number of random initializatin used for learning the model
+#' @param Nrep [1,1] int, Number of random initialization used for learning the model
 #' @param threshold [1,1] double, GFA model trimming threshold
 #' 
 #' @return A list with elements:
@@ -720,7 +720,7 @@ BGFA_cocoreg_interface <- function(df_list, K=8, Nrep=2, threshold=0.001){
 #' PCA projection using cocoreg interface
 #' 
 #' @param df_list [1,m] list of data.frames, Input data to GFA in COCOREG format
-#' @param prc_th [1,1] double, Threshold in precentage of cumulative variance explained
+#' @param prc_th [1,1] double, Threshold in percentage of cumulative variance explained
 #'        PCA components are included until cumulative explained variance reaches prc_th.
 #'       
 #' @return A list with elements:         

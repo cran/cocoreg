@@ -22,26 +22,26 @@
 ## -----------------------------------------------------------------------------
 
 #' Plotting data collections using ggplot
-#'  
-#'  @param dc_lst A list of data collections i.e. a list of lists of data.frames (see examples)
-#'  @param ylim (optional) y-axis limits as [1,2] numeric, passed on to dfplot() as 'ylim'
-#'  @param titleArr (optional)  Plot column titles as [1, length(dc_lst)] string array
-#'  @param legendMode (optional) Where to put legend, allowed values c('none','first','all')
-#'  @param dfplot (optional) Function used to plot a data.frame (one panel in final plot)
-#'  
-#'  @return Produces a plot to the active graphics device
-#'  
+#' 
+#' @param dc_lst A list of data collections i.e. a list of lists of data.frames (see examples)
+#' @param ylim (optional) y-axis limits as [1,2] numeric, passed on to dfplot() as 'ylim'
+#' @param titleArr (optional)  Plot column titles as [1, length(dc_lst)] string array
+#' @param legendMode (optional) Where to put legend, allowed values c('none','first','all')
+#' @param dfplot (optional) Function used to plot a data.frame (one panel in final plot)
+#' 
+#' @return Produces a plot to the active graphics device
+#' 
 #' @examples
 #' \dontrun{
 #' dc <- create_syn_data_toy()
 #' ccr <- cocoreg(dc$data)
 #' ggplot_dclst(list(d1 = dc$data, d2 = ccr$data, dn = dc$data))
 #' }
-#'  
-#'  @importFrom gridExtra grid.arrange
-#'  @import ggplot2
-#'  
-#'  @export
+#' 
+#' @importFrom gridExtra grid.arrange
+#' @import ggplot2
+#' 
+#' @export
 ggplot_dclst <- function(dc_lst,
                          ylim=NULL,
                          titleArr = names(dc_lst),
@@ -88,7 +88,7 @@ ggplot_dclst <- function(dc_lst,
 #' Compare data collections variable by variable
 #' 
 #' @param dclst A (named) list of data collections i.e. a list of lists of data.frames (see examples)
-#'  
+#' 
 #' @return Returns a ggplot object (which is by default printed if not assigned to variable)
 #' 
 #' @import ggplot2
@@ -125,22 +125,22 @@ ggcompare_dclst <- function(dclst){
 
 #' Plot a list of data.frames using ggplot2
 #' 
-#'  @param dflst A list of datasets as a list of data.frames
-#'  @param ncol (optional) Number of columns in final plot
-#'  @param plot (optional) Plot or not: if TRUE produces a plot else returns a list of ggplot objects
-#'  @param plotfun (optional) Function used to plot a data.frame (one panel in final plot)
-#'  @param ... (optional) Additional parameters passed on to plotfun
-#'  
-#'  @return Produces a plot to the active graphics device or returns a list of ggplot objects
-#'  
+#' @param dflst A list of datasets as a list of data.frames
+#' @param ncol (optional) Number of columns in final plot
+#' @param plot (optional) Plot or not: if TRUE produces a plot else returns a list of ggplot objects
+#' @param plotfun (optional) Function used to plot a data.frame (one panel in final plot)
+#' @param ... (optional) Additional parameters passed on to plotfun
+#' 
+#' @return Produces a plot to the active graphics device or returns a list of ggplot objects
+#' 
 #' @examples
 #' \dontrun{
 #' dc <- create_syn_data_toy()
 #' ggplot_dflst(dc$data)
 #' }
-#'  @importFrom gridExtra grid.arrange
+#' @importFrom gridExtra grid.arrange
 #'
-#'  @export
+#' @export
 ggplot_dflst <- function(dflst, ncol = 1, plot = T, plotfun = ggplot_df, ...){
   plst <- lapply(dflst, plotfun, ...)
   if (plot){
@@ -160,9 +160,9 @@ ggplot_dflst <- function(dflst, ncol = 1, plot = T, plotfun = ggplot_df, ...){
 #' @param color (optional) Input for manual color scale
 #' @param linetype (optional) Input for manual linetype scale
 #' @param logy (optional) Should y-axis be logarithmic? A boolean value.
-#'  
+#' 
 #' @return Returns a ggplot2 object
-#'  
+#' 
 #' @examples
 #' \dontrun{
 #' dc <- create_syn_data_toy()
@@ -223,9 +223,9 @@ ggplot_df <- function(df, titlestr=NULL, ylabstr=NULL, ylim=NULL, color=NULL,
 #' 
 #' @param p_list A list of lists of ggplots
 #' @param ncol Target number of columns, integer value
-#'  
+#' 
 #' @return  A reordered and flattened version of input list as a list of ggplot2 objects
-#'  
+#' 
 #' @export
 nplst_reorder_grid <- function(p_list, ncol){
   p_list_out <- vector("list", length(p_list)*length(p_list[[1]]))
